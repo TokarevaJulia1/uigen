@@ -8,5 +8,29 @@
       "command": "npx.cmd",
       "args": ["@playwright/mcp@latest"]
     }
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node c:/uigen/.claude/hooks/read_hook.js"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node c:/uigen/.claude/hooks/edit_hook.js"
+          }
+        ]
+      }
+    ]
   }
 }
